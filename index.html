@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Siddhartha Baniya — Marketing & Business Intelligence Analyst</title>
+<meta name="description" content="Portfolio of Siddhartha Baniya — Marketing & BI Analyst. Dashboards, SQL, GA4, HubSpot, attribution, and DTC consumer analytics work.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #525252;
+    --line: #e5e5e5;
+    --accent: #1a1a1a;
+    --card: #fafafa;
+    --tag: #f0f0f0;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  header.site {
+    padding: 80px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  h1 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .role {
+    font-size: 18px;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .meta a { color: var(--muted); }
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: 0; }
+  h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 0 0 24px;
+    font-weight: 600;
+  }
+  .lead { font-size: 19px; line-height: 1.6; margin: 0 0 16px; }
+  .lead + p { color: var(--muted); }
+  .projects { display: grid; gap: 24px; }
+  .project {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px;
+    background: var(--card);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .project:hover { border-color: var(--ink); }
+  .project h3 {
+    font-size: 22px;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .project .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 14px;
+  }
+  .project p { margin: 0 0 14px; color: var(--ink); }
+  .project p.muted { color: var(--muted); }
+  .project ul {
+    margin: 12px 0 16px;
+    padding-left: 18px;
+    color: var(--ink);
+  }
+  .project ul li { margin-bottom: 4px; }
+  .project .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  .tag {
+    background: var(--tag);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .project .actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 14px 24px;
+    font-size: 15px;
+  }
+  .skills-grid .label { font-weight: 600; }
+  .skills-grid .body { color: var(--muted); }
+  .exp-row {
+    margin-bottom: 24px;
+  }
+  .exp-row .row-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .exp-row .role-title { font-weight: 600; }
+  .exp-row .dates { color: var(--muted); font-size: 14px; }
+  .exp-row .org { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    font-size: 16px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 40px 0 60px;
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    .skills-grid { grid-template-columns: 1fr; gap: 4px 0; }
+    .skills-grid .label { margin-top: 12px; }
+    section { padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <h1>Siddhartha Baniya</h1>
+    <p class="role">Marketing &amp; Business Intelligence Analyst</p>
+    <div class="meta">
+      <span>Elmhurst, NY</span>
+      <a href="mailto:dis.baniya@gmail.com">dis.baniya@gmail.com</a>
+      <a href="https://www.linkedin.com/in/siddhartha-baniya/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/sidis9" target="_blank" rel="noopener">GitHub</a>
+      <a href="resume/Siddhartha_Baniya_Resume.docx">Resume (.docx)</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <h2>About</h2>
+    <p class="lead">I'm a marketing and business intelligence analyst with 5+ years building dashboards, writing SQL across multi-platform data, and turning ambiguous business questions into production-ready reports. I've worked both sides — running a direct-to-consumer brand from zero and supporting marketing analytics on a small B2B team.</p>
+    <p>Most of my work sits at the intersection of consumer e-commerce, marketing measurement, and data integrity: instrumentation, dashboards, attribution, cohort analysis, and translating numbers into something a non-technical team can act on. STEM-designated MSBA from Webster University (2025).</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2>Selected Projects</h2>
+    <div class="projects">
+
+      <article class="project">
+        <h3>Mala Pasal — Building a DTC Consumer Brand from Zero</h3>
+        <p class="subtitle">Founder &amp; Operator · 2018–2023 · Direct-to-consumer gemstone fine jewelry</p>
+        <p>A five-year case study of running a real consumer brand: audience research, segmentation, positioning, go-to-market, and the full launch-to-retention loop. What started as an undergraduate experiment became my first real product marketing practice and the source of the data instincts I still rely on.</p>
+        <ul>
+          <li>Segmented audience into Premium Buyer (25–44, authenticity-driven) vs Budget Buyer (18–24, style-driven) using polls and surveys before committing inventory</li>
+          <li>Built a four-stage GTM motion: awareness teasers → poll-based validation → limited-quantity drops → UGC-driven growth and repeat purchase</li>
+          <li>Reached six-figure (NPR) revenue in three months, broke even in 15 days, grew followers 0 → 1,300+ with above-average repeat-purchase rate</li>
+          <li>Reduced CAC by ~30% and reached ~20× ROAS at peak through positioning, social proof, and segmented messaging</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Consumer DTC</span>
+          <span class="tag">Segmentation</span>
+          <span class="tag">Go-to-Market</span>
+          <span class="tag">Meta Ads</span>
+          <span class="tag">Retention</span>
+          <span class="tag">Positioning</span>
+        </div>
+        <div class="actions">
+          <a href="projects/mala-pasal.pdf" target="_blank" rel="noopener">Read the full case study (PDF)</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>EdTech Funnel Analysis &amp; Experimentation Strategy</h3>
+        <p class="subtitle">Live Streamlit Dashboard · Python, Pandas, Plotly, Scipy · 32,593 students across 7 courses (OULAD)</p>
+        <p>An interactive growth analytics dashboard analyzing where students drop off in an EdTech platform — and which experiments could improve activation, retention, and revenue. Built on the Open University Learning Analytics Dataset and deployed live on Streamlit Cloud.</p>
+        <ul>
+          <li><strong>18% of students log in but never start a course</strong> — the largest drop-off in the funnel</li>
+          <li>Activated students are <strong>2.4× more likely to pass</strong> (57.5% vs 23.9% completion rate)</li>
+          <li>Modeled a 10% activation lift as approximately <strong>$652K in additional revenue</strong> (interactive simulator on the dashboard)</li>
+          <li>Proposed three experiments with hypothesis and expected lift: guided onboarding flow (8–12%), progress streak nudges (10–15%), and a micro-assessment in lesson one (15–20%)</li>
+          <li>Dashboard sections: funnel drop-off, activation analysis, retention by cohort, experimentation strategy, business-impact simulator</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Live Dashboard</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Python</span>
+          <span class="tag">Plotly</span>
+          <span class="tag">Funnel Analysis</span>
+          <span class="tag">Experiment Design</span>
+        </div>
+        <div class="actions">
+          <a href="https://sidis9-edtech-funnel.streamlit.app" target="_blank" rel="noopener">Open the live dashboard ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Fintech Product Growth — How Early Activation Predicts Retention &amp; LTV</h3>
+        <p class="subtitle">Product Analytics · PostgreSQL, Python, Pandas, Matplotlib · 4,312 users</p>
+        <p>An end-to-end activation analysis using the UCI Online Retail II dataset modeled as a fintech lifecycle. Defined activation as two transactions within seven days, then measured retention, engagement, and lifetime-value differences across cohorts.</p>
+        <ul>
+          <li>Only ~10% of users activated early — a major engagement bottleneck</li>
+          <li>Activated users generated <strong>~5× higher lifetime value</strong> ($7,266 vs $1,452) and ~3× more transactions on average (11.5 vs 3.7)</li>
+          <li>Retention curves stabilized around 25–30% for activated users vs ~10% for non-activated</li>
+          <li>Modeled a 5-point activation lift (10% → 15%) as approximately <strong>$1.19M in additional lifetime revenue</strong></li>
+          <li>Recommended an experiment roadmap covering trust signals, earlier value reveal, and onboarding simplification</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">Cohort Analysis</span>
+          <span class="tag">LTV</span>
+          <span class="tag">Activation</span>
+          <span class="tag">Retention</span>
+        </div>
+        <div class="actions">
+          <a href="projects/fintech-growth.pdf" target="_blank" rel="noopener">Read the full report (PDF)</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Huckberry — Closing the First-to-Second Purchase Gap</h3>
+        <p class="subtitle">DTC Retention Strategy · Public-data analysis · Three experiments</p>
+        <p>A diagnostic of where Huckberry's retention model is leaking, drawn entirely from public customer reports and brand reporting. Two observations and three concrete experiments worth running.</p>
+        <ul>
+          <li>House brands (Flint &amp; Tinder, Proof, Wills) drive repeat purchase but suffer from inconsistent sizing — the highest-margin product is also the highest churn risk</li>
+          <li>Email is positioned as the retention channel but the welcome flow captures zero behavioral or preference data and blasts a generic catalog within 24 hours</li>
+          <li>Proposed: a post-purchase fit-feedback loop, a category-segmented welcome sequence, and a house-brand cohort retention analysis to quantify the sizing-vs-marketing trade-off</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">DTC Retention</span>
+          <span class="tag">Email Lifecycle</span>
+          <span class="tag">Cohort Analysis</span>
+          <span class="tag">Experiment Design</span>
+        </div>
+        <div class="actions">
+          <a href="projects/huckberry-retention.pdf" target="_blank" rel="noopener">Read the full memo (PDF)</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Crew — How Pocket-Based Budgeting Changes Spending Behavior</h3>
+        <p class="subtitle">Behavioral Analysis · Inspired by Crew's pocket-based product</p>
+        <p>A short behavioral analysis exploring how pre-spend pocket constraints change how users spend across essential vs discretionary categories — and what it implies for product messaging and onboarding.</p>
+        <ul>
+          <li>Overspending is rare and isolated to discretionary categories; essentials (Groceries, Kids) stay stable — pre-spend constraints prevent accidental overspend</li>
+          <li>Full-pocket spending happens intentionally in "Fun" — users treat pocket depletion as guilt-free, permissioned spending, not a budgeting failure</li>
+          <li>Implication: pre-spend visibility shifts budgeting from reactive correction to proactive decision-making — frame "spending to zero" as success, not failure</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Behavioral Analytics</span>
+          <span class="tag">Product Insight</span>
+          <span class="tag">Excel Modeling</span>
+        </div>
+        <div class="actions">
+          <a href="projects/crew-behavioral.pdf" target="_blank" rel="noopener">Read the analysis (PDF)</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Customer Analytics — Live DTC Brand Data</h3>
+        <p class="subtitle">Customer Behavior &amp; Segmentation · Python, Pandas · Real transaction data</p>
+        <p>Hands-on customer analytics work using real transaction data from Mala Pasal: cleaning, segmenting, and visualizing buyer behavior to inform lifecycle marketing, merchandising, and channel-mix decisions.</p>
+        <ul>
+          <li>Built statistical segmentation models from raw customer and order data</li>
+          <li>Analyzed purchase patterns across cohorts to identify highest-LTV segments</li>
+          <li>Surfaced behavioral insights that fed back into campaign targeting and product strategy</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Segmentation</span>
+          <span class="tag">DTC</span>
+          <span class="tag">Customer LTV</span>
+        </div>
+        <div class="actions">
+          <a href="projects/customer-analytics.pdf" target="_blank" rel="noopener">Read the analysis (PDF)</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Webster University — Violence Prevention Awareness Research</h3>
+        <p class="subtitle">Applied Research · MSBA Capstone-style study · 121 students</p>
+        <p>A field study of violence-prevention awareness among Webster University students, designed and analyzed end-to-end. Measured eight awareness themes on a 0–2 scale, scored 121 student interactions, and compared domestic vs international cohorts.</p>
+        <ul>
+          <li>Domestic students averaged 10.37 / 16 vs 5.69 / 16 for international students — a substantial knowledge gap across consent, Title IX, and campus resources</li>
+          <li>Comfort seeking help was nearly identical across groups (3.12 vs 3.24) — the barrier is information, not motivation</li>
+          <li>Recommended programmatic changes: orientation integration, multilingual materials, and explicit clarification of immigration-related misconceptions</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Applied Research</span>
+          <span class="tag">Excel Statistics</span>
+          <span class="tag">Survey Design</span>
+          <span class="tag">Higher Ed</span>
+        </div>
+        <div class="actions">
+          <a href="projects/gorloks-research.pdf" target="_blank" rel="noopener">Read the full paper (PDF)</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2>Skills &amp; Tools</h2>
+    <div class="skills-grid">
+      <div class="label">Dashboards &amp; BI</div>
+      <div class="body">Tableau, Power BI, Looker Studio, Excel and Google Sheets (advanced)</div>
+
+      <div class="label">SQL &amp; Data</div>
+      <div class="body">SQL (CTEs, window functions, complex joins), data validation, multi-platform reconciliation, ETL workflows</div>
+
+      <div class="label">Web &amp; Marketing Analytics</div>
+      <div class="body">Google Analytics 4, Google Tag Manager, Google Ads, Meta Ads Manager, attribution modeling, funnel analysis</div>
+
+      <div class="label">Marketing Operations</div>
+      <div class="body">HubSpot (custom reporting, workflows, lead scoring), Klaviyo lifecycle email, Salesforce CRM, segmentation</div>
+
+      <div class="label">Programming</div>
+      <div class="body">Python (pandas), PostgreSQL, statistical analysis, A/B and multivariate testing, cohort analysis</div>
+
+      <div class="label">CMS &amp; E-Commerce</div>
+      <div class="body">WordPress, Shopify, content management, on-page SEO</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2>Experience</h2>
+
+    <div class="exp-row">
+      <div class="row-head">
+        <div class="role-title">Founder &amp; Marketing Analyst</div>
+        <div class="dates">May 2018 – Dec 2023</div>
+      </div>
+      <div class="org">Mala Pasal — Direct-to-consumer gemstone fine jewelry brand</div>
+      <p>Built and ran a DTC consumer brand from zero. Owned acquisition, retention, attribution, dashboards, content, and customer analytics. Reached six-figure (NPR) revenue in 3 months, ~20× ROAS at peak, ~30% CAC reduction over the run.</p>
+    </div>
+
+    <div class="exp-row">
+      <div class="row-head">
+        <div class="role-title">Marketing Executive (Marketing &amp; BI)</div>
+        <div class="dates">Jan 2021 – Jan 2023</div>
+      </div>
+      <div class="org">Smith &amp; Fabricators Pvt. Ltd.</div>
+      <p>Built dashboards in Power BI and Looker Studio. Wrote SQL across HubSpot, Salesforce, GA4, and Google Ads. Reconciled discrepancies between systems, designed A/B tests on creative and landing pages, and translated complex marketing data into reports leadership could act on.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="exp-row">
+      <div class="row-head">
+        <div class="role-title">M.S. Business Analytics (STEM-designated)</div>
+        <div class="dates">2025</div>
+      </div>
+      <div class="org">Webster University, Saint Louis, MO · GPA 3.9 / 4.0</div>
+    </div>
+    <div class="exp-row">
+      <div class="row-head">
+        <div class="role-title">B.A. Business Administration</div>
+        <div class="dates">2021</div>
+      </div>
+      <div class="org">London Metropolitan University · Upper Second Class Honours</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="contact-list">
+      <a href="mailto:dis.baniya@gmail.com">dis.baniya@gmail.com</a>
+      <a href="https://www.linkedin.com/in/siddhartha-baniya/" target="_blank" rel="noopener">linkedin.com/in/siddhartha-baniya</a>
+      <a href="https://github.com/sidis9" target="_blank" rel="noopener">github.com/sidis9</a>
+      <a href="resume/Siddhartha_Baniya_Resume.docx">Resume (.docx)</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Built and maintained by Siddhartha Baniya · Last updated May 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
