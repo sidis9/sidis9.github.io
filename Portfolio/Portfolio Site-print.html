@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddhartha Baniya — Marketing & BI Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Reset & Tokens ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #ffffff;
+  --surface:   #f7f7f6;
+  --border:    #e8e8e6;
+  --border-md: #d4d4d0;
+  --text:      #111110;
+  --text-2:    #6b6b68;
+  --text-3:    #a8a8a4;
+  --accent:    #c8842a;      /* warm amber — hover + live CTA only */
+  --accent-bg: #fdf5e8;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', system-ui, sans-serif;
+  --r:         4px;
+  --max:       760px;        /* tight prose width — feels intentional */
+  --max-wide:  1060px;
+}
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--font-sans); cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.container--narrow { max-width: var(--max); }
+
+/* ─── Nav ────────────────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav__inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav__name {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.nav__links {
+  display: flex;
+  gap: 4px;
+}
+.nav__link {
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 6px 10px;
+  border-radius: var(--r);
+  transition: color 0.12s, background 0.12s;
+}
+.nav__link:hover { color: var(--text); background: var(--surface); }
+.nav__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ─── Hero ───────────────────────────────────────────────── */
+.hero {
+  padding: 80px 0 72px;
+  border-bottom: 1px solid var(--border);
+}
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.hero__role {
+  font-size: 15px;
+  color: var(--text-2);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+.hero__tagline {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--text-2);
+  line-height: 1.72;
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-2);
+  border: 1px solid var(--border-md);
+  padding: 7px 14px;
+  border-radius: var(--r);
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+.hero__link:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.hero__link--accent {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.hero__link--accent:hover { background: var(--accent-bg); }
+
+/* ─── Section scaffold ───────────────────────────────────── */
+.section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-child { border-bottom: none; }
+.section__header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.section__num {
+  font-family: 'Inter', monospace;
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.section__title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─── About ──────────────────────────────────────────────── */
+.about__text {
+  font-size: 17px;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.8;
+  max-width: 640px;
+}
+
+/* ─── Projects ───────────────────────────────────────────── */
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+/* Hero project — spans full width, accent tint */
+.project-card {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  transition: background 0.1s;
+}
+.project-card:last-child { border-bottom: none; }
+.project-card--hero {
+  background: var(--accent-bg);
+  border-bottom: 1px solid #edd9b8;
+}
+.project-card--hero:hover { background: #faefd6; }
+.project-card:not(.project-card--hero):hover { background: var(--surface); }
+
+.project-card__summary {
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px 24px;
+  align-items: start;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.project-card__left { min-width: 0; }
+.project-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.project-card__live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.live-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.project-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.project-card--hero .project-card__title { font-size: 18px; }
+.project-card__subtitle {
+  font-size: 12px;
+  color: var(--text-3);
+  font-weight: 400;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.project-card__desc {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.65;
+  max-width: 600px;
+}
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.tag {
+  font-size: 11px;
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.project-card--hero .tag {
+  color: var(--accent);
+  border-color: #edd9b8;
+  background: rgba(200,132,42,0.06);
+}
+.project-card__chevron {
+  color: var(--text-3);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.18s;
+}
+.project-card__chevron--open { transform: rotate(180deg); }
+
+/* Expanded detail panel */
+.project-card__detail {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s cubic-bezier(0.4,0,0.2,1);
+}
+.project-card__detail--open {
+  max-height: 600px;
+}
+.project-card__detail-inner {
+  padding: 0 28px 28px;
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+}
+.project-card--hero .project-card__detail-inner {
+  border-top-color: #edd9b8;
+}
+.detail-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 20px 0 10px;
+}
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.result-list__item {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.55;
+  align-items: start;
+}
+.result-list__item::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.project-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.project-card--hero .project-card__actions { border-top-color: #edd9b8; }
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--r);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.action-link--primary {
+  background: var(--accent);
+  color: #fff;
+}
+.action-link--primary:hover { background: #a86e20; }
+.action-link--secondary {
+  color: var(--text-2);
+  border: 1px solid var(--border-md);
+}
+.action-link--secondary:hover { background: var(--surface); color: var(--text); border-color: var(--text); }
+
+/* ─── Skills ─────────────────────────────────────────────── */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.skill-group__cat {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+.skill-group__item {
+  font-size: 14px;
+  color: var(--text-2);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.4;
+}
+.skill-group__item:last-child { border-bottom: none; }
+
+/* ─── Experience ─────────────────────────────────────────── */
+.exp__list { display: flex; flex-direction: column; gap: 48px; }
+.exp__role {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.exp__meta {
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+.exp__bullet {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 9px;
+  line-height: 1.55;
+  align-items: start;
+}
+.exp__bullet::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border-md);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* ─── Education ──────────────────────────────────────────── */
+.edu__list { display: flex; flex-direction: column; gap: 24px; }
+.edu__degree {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.edu__meta {
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.edu__note {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+/* ─── Contact ────────────────────────────────────────────── */
+.contact__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.contact__note {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--text-2);
+  line-height: 1.75;
+}
+.contact__links { display: flex; flex-direction: column; gap: 12px; }
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.1s;
+}
+.contact__item:hover .contact__val { color: var(--accent); }
+.contact__label {
+  font-size: 11px;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: 72px;
+  flex-shrink: 0;
+}
+.contact__val {
+  font-size: 14px;
+  color: var(--text);
+  transition: color 0.12s;
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.footer {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__text {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* ─── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .nav__links { display: none; }
+  .hero { padding: 56px 0 48px; }
+  .hero__name { letter-spacing: -0.025em; }
+  .hero__tagline { font-size: 16px; }
+  .section { padding: 52px 0; }
+  .skills__grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact__wrap { grid-template-columns: 1fr; gap: 32px; }
+  .project-card__summary { grid-template-columns: 1fr auto; }
+  .project-card__detail-inner { padding: 0 20px 20px; }
+  .project-card__summary { padding: 20px; }
+  .footer { flex-direction: column; gap: 4px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .hero__links { gap: 8px; }
+}
+
+/* ─── Scroll anchors ─────────────────────────────────────── */
+[id] { scroll-margin-top: 64px; }
+
+/* ─── Print styles ───────────────────────────────────────── */
+@media print {
+  @page { size: letter portrait; margin: 1.8cm 2cm; }
+
+  /* Remove nav */
+  .nav { display: none !important; }
+
+  /* Remove sticky, allow full flow */
+  body { min-height: unset; }
+  html { font-size: 14px; }
+
+  /* Force colors */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Sections flow naturally, soft page break before each */
+  .section {
+    break-inside: avoid-page;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .hero { padding: 40px 0 32px; }
+
+  /* Kill accordion — show all project detail panels open */
+  .project-card__detail {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .project-card__detail-inner { display: block !important; }
+  .project-card__chevron { display: none !important; }
+  .project-card__summary { cursor: default; }
+
+  /* Each project card stays together */
+  .project-card { break-inside: avoid; }
+
+  /* Kill hover/interactive states */
+  .nav__link, .hero__link, .action-link { box-shadow: none; }
+
+  /* Keep colors and backgrounds */
+  .project-card--hero { background: var(--accent-bg) !important; }
+
+  /* Skills grid — 3 col on paper */
+  .skills__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  /* Contact — single col on print */
+  .contact__wrap { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Footer */
+  .footer { padding: 16px 0; }
+
+  /* Page break before major sections */
+  #projects { break-before: page; }
+  #skills    { break-before: page; }
+  #contact   { break-before: avoid; }
+}
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#ffffff">
+  <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- Name block -->
+    <rect x="48" y="60" width="320" height="32" rx="4" fill="#111110"/>
+    <rect x="48" y="104" width="200" height="14" rx="3" fill="#d4d4d0"/>
+    <rect x="48" y="128" width="440" height="10" rx="3" fill="#e8e8e6"/>
+    <rect x="48" y="146" width="380" height="10" rx="3" fill="#e8e8e6"/>
+    <!-- Contact chips -->
+    <rect x="48" y="176" width="110" height="28" rx="4" fill="none" stroke="#d4d4d0" stroke-width="1.5"/>
+    <rect x="168" y="176" width="90" height="28" rx="4" fill="none" stroke="#d4d4d0" stroke-width="1.5"/>
+    <rect x="268" y="176" width="80" height="28" rx="4" fill="none" stroke="#d4d4d0" stroke-width="1.5"/>
+    <!-- Divider -->
+    <line x1="48" y1="228" x2="752" y2="228" stroke="#e8e8e6" stroke-width="1"/>
+    <!-- Hero project card — amber tint -->
+    <rect x="48" y="248" width="704" height="100" rx="4" fill="#fdf5e8"/>
+    <circle cx="72" cy="272" r="5" fill="#c8842a"/>
+    <rect x="86" y="266" width="80" height="10" rx="2" fill="#c8842a" opacity="0.6"/>
+    <rect x="72" y="286" width="260" height="14" rx="3" fill="#111110"/>
+    <rect x="72" y="308" width="400" height="9" rx="2" fill="#a8a8a4"/>
+    <rect x="72" y="324" width="320" height="9" rx="2" fill="#a8a8a4"/>
+    <!-- Regular project cards -->
+    <rect x="48" y="360" width="704" height="56" rx="0" fill="none" stroke="#e8e8e6" stroke-width="1"/>
+    <rect x="68" y="376" width="180" height="10" rx="2" fill="#111110"/>
+    <rect x="68" y="394" width="280" height="8" rx="2" fill="#d4d4d0"/>
+    <rect x="48" y="416" width="704" height="56" rx="0" fill="none" stroke="#e8e8e6" stroke-width="1"/>
+    <rect x="68" y="432" width="200" height="10" rx="2" fill="#111110"/>
+    <rect x="68" y="450" width="240" height="8" rx="2" fill="#d4d4d0"/>
+    <!-- Nav dot -->
+    <circle cx="752" cy="30" r="5" fill="#c8842a"/>
+  </svg>
+</template>
+</head>
+<body>
+
+<!-- ── Nav ────────────────────────────────────────────────── -->
+<nav class="nav" aria-label="Site navigation">
+  <div class="nav__inner">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span class="nav__dot" aria-hidden="true"></span>
+      <span class="nav__name" id="nav-name"></span>
+    </div>
+    <div class="nav__links" role="list">
+      <a class="nav__link" href="#about" role="listitem">About</a>
+      <a class="nav__link" href="#projects" role="listitem">Projects</a>
+      <a class="nav__link" href="#skills" role="listitem">Skills</a>
+      <a class="nav__link" href="#experience" role="listitem">Experience</a>
+      <a class="nav__link" href="#contact" role="listitem">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="container container--narrow">
+    <h1 class="hero__name" id="hero-name"></h1>
+    <p class="hero__role" id="hero-role"></p>
+    <p class="hero__tagline" id="hero-tagline"></p>
+    <div class="hero__links" id="hero-links"></div>
+  </div>
+</section>
+
+<!-- ── About ──────────────────────────────────────────────── -->
+<section class="section" id="about">
+  <div class="container container--narrow">
+    <div class="section__header">
+      <span class="section__num">01</span>
+      <span class="section__title">About</span>
+    </div>
+    <p class="about__text" id="about-text"></p>
+  </div>
+</section>
+
+<!-- ── Projects ───────────────────────────────────────────── -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__num">02</span>
+      <span class="section__title">Selected Projects</span>
+    </div>
+    <div class="projects__list" id="projects-list"></div>
+  </div>
+</section>
+
+<!-- ── Skills ─────────────────────────────────────────────── -->
+<section class="section" id="skills">
+  <div class="container container--narrow">
+    <div class="section__header">
+      <span class="section__num">03</span>
+      <span class="section__title">Skills</span>
+    </div>
+    <div class="skills__grid" id="skills-grid"></div>
+  </div>
+</section>
+
+<!-- ── Experience ─────────────────────────────────────────── -->
+<section class="section" id="experience">
+  <div class="container container--narrow">
+    <div class="section__header">
+      <span class="section__num">04</span>
+      <span class="section__title">Experience</span>
+    </div>
+    <div class="exp__list" id="exp-list"></div>
+  </div>
+</section>
+
+<!-- ── Education ──────────────────────────────────────────── -->
+<section class="section" id="education">
+  <div class="container container--narrow">
+    <div class="section__header">
+      <span class="section__num">05</span>
+      <span class="section__title">Education</span>
+    </div>
+    <div class="edu__list" id="edu-list"></div>
+  </div>
+</section>
+
+<!-- ── Contact ────────────────────────────────────────────── -->
+<section class="section" id="contact">
+  <div class="container container--narrow">
+    <div class="section__header">
+      <span class="section__num">06</span>
+      <span class="section__title">Contact</span>
+    </div>
+    <div class="contact__wrap">
+      <p class="contact__note">
+</p>
+      <div class="contact__links" id="contact-links"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container" style="width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+    <span class="footer__text" id="footer-name"></span>
+    <span class="footer__text" id="footer-year"></span>
+  </div>
+</footer>
+
+<!-- ── Data ───────────────────────────────────────────────── -->
+<script>
+// ─────────────────────────────────────────────────────────────────
+// data.js — Siddhartha Baniya portfolio content
+// Populated from real project work and resume.
+// ─────────────────────────────────────────────────────────────────
+
+const DATA = {
+
+  // ── Identity ─────────────────────────────────────────────────
+  name: "Siddhartha Baniya",
+  role: "Marketing & Business Intelligence Analyst",
+  tagline: "I build the dashboards, run the analysis, and translate both into decisions teams can actually act on. I've also run a DTC consumer brand from zero, so I know what the numbers look like from the operator side.",
+  about: "Five-plus years working at the intersection of marketing and data. I built and ran my own direct-to-consumer fine jewelry brand from zero (2018–2023), and held a full-time marketing analytics role on a small B2B team in parallel by building dashboards in Power BI and Looker Studio, reconciling cross-platform data, and reporting weekly to leadership. I'm most interested in companies where the data team and the go-to-market team are in the same room.",
+
+  contact: {
+    email: "dis.baniya@gmail.com",
+    linkedin: "linkedin.com/in/siddhartha-baniya",
+    github: "github.com/sidis9",
+  },
+
+  // ── Projects ─────────────────────────────────────────────────
+  // hero: true  →  the live-dashboard card (gets accent CTA)
+  // pdf: true   →  show "Download PDF" link
+  // link: url   →  external link (live dashboard, case study, etc.)
+  projects: [
+    {
+      id: "edtech-funnel",
+      title: "EdTech Funnel Analysis & Experimentation Strategy",
+      subtitle: "Live Streamlit Dashboard · Python · Pandas · Plotly · Scipy · 32,593 students across 7 courses (OULAD)",
+      description: "An interactive growth analytics dashboard analyzing where students drop off in an EdTech platform — and which experiments could improve activation, retention, and revenue. Built on the Open University Learning Analytics Dataset and deployed live on Streamlit Cloud.",
+      results: [
+        "18% of students log in but never start a course — the largest drop-off in the funnel",
+        "Activated students are 2.4× more likely to pass (57.5% vs 23.9% completion rate)",
+        "Modeled a 10% activation lift as approximately $652K in additional revenue (interactive simulator on the dashboard)",
+        "Proposed three experiments with hypotheses and expected lift: guided onboarding flow (8–12%), progress streak nudges (10–15%), and a micro-assessment in lesson one (15–20%)",
+      ],
+      tags: ["Live Dashboard", "Streamlit", "Python", "Plotly", "Funnel Analysis", "Experiment Design"],
+      hero: true,
+      link: "https://sidis9-edtech-funnel.streamlit.app",
+      linkLabel: "Open the live dashboard ↗",
+    },
+    {
+      id: "mala-pasal",
+      title: "Mala Pasal — Building a DTC Consumer Brand from Zero",
+      subtitle: "Founder & Operator · 2018–2023 · Direct-to-consumer gemstone fine jewelry",
+      description: "A five-year case study of running a real consumer brand: audience research, segmentation, positioning, go-to-market, and the full launch-to-retention loop. What started as an undergraduate experiment became my first real product marketing practice and the source of the data instincts I still rely on.",
+      results: [
+        "Segmented audience into Premium Buyer (25–44, authenticity-driven) vs Budget Buyer (18–24, style-driven) using polls and surveys before committing inventory",
+        "Built a four-stage GTM motion: awareness teasers → poll-based validation → limited-quantity drops → UGC-driven growth",
+        "Reached six-figure (NPR) revenue in three months, broke even in 15 days, grew followers 0 → 1,300+ with above-average repeat-purchase rate",
+        "Reduced CAC by ~30% and reached ~20× ROAS at peak through positioning, social proof, and segmented messaging",
+      ],
+      tags: ["Consumer DTC", "Segmentation", "Go-to-Market", "Meta Ads", "Retention", "Positioning"],
+      pdf: true,
+      pdfPath: "projects/mala-pasal.pdf",
+    },
+    {
+      id: "email-audit",
+      title: "Email Lifecycle Audit & A/B Test Plan — B2B Childcare SaaS",
+      subtitle: "Marketing Analytics Assessment · 22-email sequence across MQL → Demo → Post-Demo → Rescheduling → Opportunity",
+      description: "An end-to-end audit of a B2B SaaS lifecycle email program serving the U.S. childcare market. Diagnosed where high-intent prospects were dropping off, identified what was working, and designed a 4-email pilot test with control/test split, success metrics, and a 12-week timeline.",
+      results: [
+        "Identified the binding risk: high-intent prospects dropping off at MQL and Rescheduling stages — MQL sequence decays from 24% open at EM1 to 12% by EM5",
+        "Surfaced a 2× lift on vertical-specific copy (43.6% open vs 24% for generic) — recommended building dedicated vertical content for EM2 through EM5",
+        "Flagged EM4 unsubscribe spike at 2.05% (highest in dataset) — recommended removing EM4–EM5 from MQL sequence for 90 days to protect list quality",
+        "Designed a 4-email pilot: hypothesis, audience split, message flow, HubSpot workflows, A/B testing, success metrics (open rate >30%, demo booking +15%, unsubscribe <1%)",
+      ],
+      tags: ["HubSpot", "Email Lifecycle", "A/B Testing", "B2B SaaS", "MQL Funnel", "Test Design"],
+      pdf: true,
+      pdfPath: "projects/email-audit.pdf",
+    },
+    {
+      id: "fintech-growth",
+      title: "Fintech Product Growth — How Early Activation Predicts Retention & LTV",
+      subtitle: "Product Analytics · PostgreSQL · Python · Pandas · Matplotlib · 4,312 users",
+      description: "An end-to-end activation analysis using the UCI Online Retail II dataset modeled as a fintech lifecycle. Defined activation as two transactions within seven days, then measured retention, engagement, and lifetime-value differences across cohorts.",
+      results: [
+        "Only ~10% of users activated early — a major engagement bottleneck",
+        "Activated users generated ~5× higher lifetime value ($7,266 vs <script>,452) and ~3× more transactions (11.5 vs 3.7)",
+        "Retention curves stabilized around 25–30% for activated users vs ~10% for non-activated",
+        "Modeled a 5-point activation lift (10% → 15%) as approximately <script>.19M in additional lifetime revenue",
+      ],
+      tags: ["PostgreSQL", "Python", "Cohort Analysis", "LTV", "Activation", "Retention"],
+      pdf: true,
+      pdfPath: "projects/fintech-growth.pdf",
+    },
+    {
+      id: "fraud-detection",
+      title: "Detecting Anomalous Corporate Expense Transactions with ML",
+      subtitle: "Machine Learning Case Study · Decision Tree · Random Forest · RapidMiner · 6.36M transactions",
+      description: "A supervised classification project exploring how machine learning can enhance fraud detection in corporate finance workflows where rule-based systems miss subtle or emerging patterns. Built and compared two models on a 6.36M-row PaySim-style dataset.",
+      results: [
+        "Trained Decision Tree (baseline, interpretable) and Random Forest (ensemble, production-style) classifiers on 11 transaction features",
+        "Random Forest outperformed: 99.88% accuracy, 99.91% precision, 50.28% recall, 0.782 AUC vs Decision Tree at 0.661 AUC",
+        "Identified that fraudulent transactions concentrate in CASH_OUT and TRANSFER types with anomalous balance signatures",
+        "Honest takeaway: 50% recall is the binding constraint for production — next iterations should explore class-imbalance handling, isolation-forest framing, and NLP on expense narratives",
+      ],
+      tags: ["Machine Learning", "Classification", "Random Forest", "RapidMiner", "Fraud Detection"],
+      pdf: true,
+      pdfPath: "projects/fraud-detection.pdf",
+    },
+    {
+      id: "sentiment-analysis",
+      title: "Sentiment Analysis on Customer Reviews",
+      subtitle: "NLP & Voice-of-Customer Analytics · Sentiment scoring · Segment analysis · Themes",
+      description: "An end-to-end sentiment analysis on customer review data — combining sentiment distribution, rating correlations, price-point patterns, segment comparisons, and text themes into actionable business recommendations.",
+      results: [
+        "55.2% of reviews scored negative, 30.0% positive, 14.8% neutral — diagnosed underlying dissatisfaction patterns",
+        "Found a clear correlation between star ratings and sentiment scores (1-star: 0.22, 4-star: 0.55) — quantifying the experience gap to address",
+        "Identified a price-point inflection at <script>2 where sentiment drops sharply (0.39) versus <script>0–<script>1 (above 0.6) — value-perception signal",
+        "Translated findings into pricing, segmentation, and product-feedback recommendations for the customer-experience team",
+      ],
+      tags: ["NLP", "Voice of Customer", "Sentiment Analysis", "Segmentation", "Pricing Insight"],
+      pdf: true,
+      pdfPath: "projects/sentiment-analysis.pdf",
+    },
+    {
+      id: "huckberry-retention",
+      title: "Huckberry — Closing the First-to-Second Purchase Gap",
+      subtitle: "DTC Retention Strategy · Public-data analysis · Three experiments",
+      description: "A diagnostic of where Huckberry's retention model is leaking, drawn entirely from public customer reports and brand reporting. Two observations and three concrete experiments worth running.",
+      results: [
+        "House brands (Flint & Tinder, Proof, Wills) drive repeat purchase but suffer from inconsistent sizing — the highest-margin product is also the highest churn risk",
+        "Email is positioned as the retention channel but the welcome flow captures zero behavioral or preference data and blasts a generic catalog within 24 hours",
+        "Proposed: a post-purchase fit-feedback loop, a category-segmented welcome sequence, and a house-brand cohort retention analysis",
+      ],
+      tags: ["DTC Retention", "Email Lifecycle", "Cohort Analysis", "Experiment Design"],
+      pdf: true,
+      pdfPath: "projects/huckberry-retention.pdf",
+    },
+    {
+      id: "crew-behavioral",
+      title: "Crew — How Pocket-Based Budgeting Changes Spending Behavior",
+      subtitle: "Behavioral Analysis · Inspired by Crew's pocket-based product",
+      description: "A short behavioral analysis exploring how pre-spend pocket constraints change how users spend across essential vs discretionary categories — and what it implies for product messaging and onboarding.",
+      results: [
+        "Overspending is rare and isolated to discretionary categories; essentials (Groceries, Kids) stay stable — pre-spend constraints prevent accidental overspend",
+        "Full-pocket spending happens intentionally in Fun categories — users treat pocket depletion as guilt-free, permissioned spending, not a budgeting failure",
+        "Implication: pre-spend visibility shifts budgeting from reactive correction to proactive decision-making — frame spending to zero as success, not failure",
+      ],
+      tags: ["Behavioral Analytics", "Product Insight", "Excel Modeling"],
+      pdf: true,
+      pdfPath: "projects/crew-behavioral.pdf",
+    },
+    {
+      id: "gorloks-research",
+      title: "Webster University — Violence Prevention Awareness Research",
+      subtitle: "Applied Research · MSBA Capstone-style study · 121 students",
+      description: "A field study of violence-prevention awareness among Webster University students, designed and analyzed end-to-end. Measured eight awareness themes on a 0–2 scale, scored 121 student interactions, and compared domestic vs international cohorts.",
+      results: [
+        "Domestic students averaged 10.37 / 16 vs 5.69 / 16 for international students — a substantial knowledge gap across consent, Title IX, and campus resources",
+        "Comfort seeking help was nearly identical across groups (3.12 vs 3.24) — the barrier is information, not motivation",
+        "Recommended programmatic changes: orientation integration, multilingual materials, and explicit clarification of immigration-related misconceptions",
+      ],
+      tags: ["Applied Research", "Excel Statistics", "Survey Design", "Higher Ed"],
+      pdf: true,
+      pdfPath: "projects/gorloks-research.pdf",
+    },
+  ],
+
+  // ── Skills ───────────────────────────────────────────────────
+  skills: [
+    {
+      category: "Analytics & BI",
+      items: [
+        "SQL (CTEs, window functions, complex joins)",
+        "Python (pandas, statistical analysis)",
+        "Looker Studio · Tableau · Power BI",
+        "Excel & Google Sheets (advanced — pivots, modeling)",
+      ],
+    },
+    {
+      category: "Marketing & Growth",
+      items: [
+        "HubSpot (custom reporting, workflows, lead scoring)",
+        "Google Analytics 4 · Google Tag Manager",
+        "Paid media (Meta Ads, Google Ads)",
+        "Klaviyo (lifecycle email, segmentation)",
+      ],
+    },
+    {
+      category: "Data Practice",
+      items: [
+        "Attribution modeling · funnel analysis · cohort analysis",
+        "A/B and multivariate testing · experiment design",
+        "Cross-platform data validation & discrepancy reconciliation",
+        "Streamlit (live dashboards & internal tools)",
+      ],
+    },
+  ],
+
+  // ── Experience ───────────────────────────────────────────────
+  experience: [
+    {
+      role: "Marketing Lead & Founder",
+      company: "Mala Pasal",
+      period: "May 2018 — Dec 2023",
+      bullets: [
+        "Built and ran a direct-to-consumer gemstone fine jewelry brand from zero — owned acquisition, retention, attribution, dashboards, content, and customer analytics",
+        "Reached six-figure (NPR) revenue in 3 months, ~20× ROAS at peak, ~30% CAC reduction over the run",
+        "Built dashboards in Tableau and Looker Studio tracking CAC, ROAS, conversion rates, and customer behavior; delivered weekly performance reads and quarterly strategic reviews",
+        "Implemented UTM-based attribution and funnel tracking; reconciled performance data across Google Analytics, ad platforms, and CRM",
+      ],
+    },
+    {
+      role: "Marketing & Business Intelligence Analyst",
+      company: "Smith & Fabricators Pvt. Ltd.",
+      period: "Jan 2021 — Jan 2023",
+      bullets: [
+        "Built and maintained Power BI and Looker Studio dashboards consolidating GA4, HubSpot, Salesforce, and Google Ads data into weekly views for executive and operational audiences",
+        "Wrote SQL queries (CTEs, window functions) to extract, validate, and consolidate marketing and CRM data across multiple platforms",
+        "Mapped data dependencies between CRM, ad platforms, and analytics; documented data flows and source-of-truth systems to ensure reporting consistency",
+        "Designed and analyzed A/B tests on creative, audience targeting, and landing pages; translated statistically meaningful results into recommendations adopted by marketing and creative leads",
+      ],
+    },
+  ],
+
+  // ── Education ────────────────────────────────────────────────
+  education: [
+    {
+      degree: "M.S. Business Analytics (STEM-designated)",
+      school: "Webster University, Saint Louis, MO",
+      year: "2025",
+      note: "GPA 3.9 / 4.0",
+    },
+    {
+      degree: "B.A. Business Administration",
+      school: "London Metropolitan University",
+      year: "2021",
+      note: "Upper Second Class Honours",
+    },
+  ],
+
+};
+
+</script>
+
+<!-- ── Render ─────────────────────────────────────────────── -->
+<script>
+(function() {
+  const d = DATA;
+
+  /* helpers */
+  function el(tag, attrs, ...children) {
+    const e = document.createElement(tag);
+    if (attrs) Object.entries(attrs).forEach(([k, v]) => {
+      if (k === 'class') e.className = v;
+      else if (k === 'html') e.innerHTML = v;
+      else if (k === 'text') e.textContent = v;
+      else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+      else e.setAttribute(k, v);
+    });
+    children.flat().forEach(c => c && e.append(typeof c === 'string' ? document.createTextNode(c) : c));
+    return e;
+  }
+  function svgIcon(path, size=16) {
+    const s = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    s.setAttribute('width', size); s.setAttribute('height', size);
+    s.setAttribute('viewBox','0 0 16 16'); s.setAttribute('fill','none');
+    s.setAttribute('stroke','currentColor'); s.setAttribute('stroke-width','1.6');
+    s.setAttribute('stroke-linecap','round'); s.setAttribute('stroke-linejoin','round');
+    s.innerHTML = path;
+    return s;
+  }
+  const CHEVRON = '<path d="M3 6l5 5 5-5"/>';
+  const ARROW_UP_RIGHT = '<path d="M3 13L13 3M13 3H6M13 3v7"/>';
+  const DOWNLOAD = '<path d="M8 3v7M5 7l3 3 3-3M3 13h10"/>';
+  const MAIL = '<rect x="2" y="4" width="12" height="9" rx="1"/><path d="M2 5l6 5 6-5"/>';
+  const LINKEDIN = '<rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 7v4M5 5v.5M8 11V8.5C8 7.7 8.7 7 9.5 7S11 7.7 11 8.5V11"/>';
+  const GITHUB = '<circle cx="8" cy="8" r="6"/><path d="M5.5 10.5c0-1 .5-2 1.5-2.5v-1a2 2 0 114 0v1c1 .5 1.5 1.5 1.5 2.5"/>';
+
+  /* ── Nav / Hero ── */
+  document.getElementById('nav-name').textContent = d.name;
+  document.getElementById('hero-name').textContent = d.name;
+  document.getElementById('hero-role').textContent = d.role;
+  document.getElementById('hero-tagline').textContent = d.tagline;
+
+  const heroLinks = document.getElementById('hero-links');
+  [
+    { label: d.contact.email, href: `mailto:${d.contact.email}`, icon: MAIL },
+    { label: 'LinkedIn', href: `https://${d.contact.linkedin}`, icon: LINKEDIN },
+    { label: 'GitHub', href: `https://${d.contact.github}`, icon: GITHUB },
+  ].forEach(({ label, href, icon }) => {
+    heroLinks.appendChild(el('a', { class: 'hero__link', href, target: '_blank', rel: 'noopener' },
+      svgIcon(icon, 14), label
+    ));
+  });
+
+  /* ── About ── */
+  document.getElementById('about-text').textContent = d.about;
+
+  /* ── Projects ── */
+  const projectsList = document.getElementById('projects-list');
+  const openCards = new Set();
+
+  d.projects.forEach(p => {
+    const isHero = !!p.hero;
+    const card = el('article', { class: `project-card${isHero ? ' project-card--hero' : ''}` });
+
+    // Summary (always visible)
+    const summary = el('button', {
+      class: 'project-card__summary',
+      'aria-expanded': 'false',
+    });
+
+    const left = el('div', { class: 'project-card__left' });
+
+    // Meta row
+    const meta = el('div', { class: 'project-card__meta' });
+    if (isHero) {
+      meta.appendChild(el('span', { class: 'project-card__live-badge' },
+        el('span', { class: 'live-dot' }),
+        'Live Dashboard'
+      ));
+    }
+    left.appendChild(meta);
+    left.appendChild(el('div', { class: 'project-card__title', text: p.title }));
+    left.appendChild(el('div', { class: 'project-card__subtitle', text: p.subtitle }));
+    left.appendChild(el('p', { class: 'project-card__desc', text: p.description }));
+
+    // Tags
+    const tags = el('div', { class: 'project-card__tags' });
+    p.tags.forEach(t => tags.appendChild(el('span', { class: 'tag', text: t })));
+    left.appendChild(tags);
+
+    const chevronIcon = svgIcon(CHEVRON, 16);
+    chevronIcon.classList.add('project-card__chevron');
+
+    summary.appendChild(left);
+    summary.appendChild(chevronIcon);
+    card.appendChild(summary);
+
+    // Detail panel (expandable)
+    const detail = el('div', { class: 'project-card__detail' });
+    const detailInner = el('div', { class: 'project-card__detail-inner' });
+
+    detailInner.appendChild(el('div', { class: 'detail-section-label', text: 'Results' }));
+    const resultList = el('ul', { class: 'result-list' });
+    p.results.forEach(r => {
+      resultList.appendChild(el('li', { class: 'result-list__item', text: r }));
+    });
+    detailInner.appendChild(resultList);
+
+    // Actions
+    const actions = el('div', { class: 'project-card__actions' });
+    if (p.link) {
+      actions.appendChild(el('a', {
+        class: `action-link ${isHero ? 'action-link--primary' : 'action-link--secondary'}`,
+        href: p.link, target: '_blank', rel: 'noopener'
+      }, svgIcon(ARROW_UP_RIGHT, 13), p.linkLabel || 'View ↗'));
+    }
+    if (p.pdf) {
+      actions.appendChild(el('a', {
+        class: 'action-link action-link--secondary',
+        href: '#',
+      }, svgIcon(DOWNLOAD, 13), 'Download PDF'));
+    }
+    if (actions.children.length) detailInner.appendChild(actions);
+
+    detail.appendChild(detailInner);
+    card.appendChild(detail);
+
+    // Toggle
+    summary.addEventListener('click', () => {
+      const isOpen = openCards.has(p.id);
+      if (isOpen) {
+        openCards.delete(p.id);
+        detail.classList.remove('project-card__detail--open');
+        chevronIcon.classList.remove('project-card__chevron--open');
+        summary.setAttribute('aria-expanded', 'false');
+      } else {
+        openCards.add(p.id);
+        detail.classList.add('project-card__detail--open');
+        chevronIcon.classList.add('project-card__chevron--open');
+        summary.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    projectsList.appendChild(card);
+  });
+
+  /* ── Skills ── */
+  const skillsGrid = document.getElementById('skills-grid');
+  d.skills.forEach(group => {
+    const col = el('div', { class: 'skill-group' });
+    col.appendChild(el('div', { class: 'skill-group__cat', text: group.category }));
+    group.items.forEach(item => col.appendChild(el('div', { class: 'skill-group__item', text: item })));
+    skillsGrid.appendChild(col);
+  });
+
+  /* ── Experience ── */
+  const expList = document.getElementById('exp-list');
+  d.experience.forEach(exp => {
+    const item = el('div');
+    item.appendChild(el('div', { class: 'exp__role', text: exp.role }));
+    item.appendChild(el('div', { class: 'exp__meta', text: `${exp.company} · ${exp.period}` }));
+    exp.bullets.forEach(b => item.appendChild(el('div', { class: 'exp__bullet', text: b })));
+    expList.appendChild(item);
+  });
+
+  /* ── Education ── */
+  const eduList = document.getElementById('edu-list');
+  d.education.forEach(e => {
+    const item = el('div');
+    item.appendChild(el('div', { class: 'edu__degree', text: e.degree }));
+    item.appendChild(el('div', { class: 'edu__meta', text: `${e.school} · ${e.year}` }));
+    if (e.note) item.appendChild(el('div', { class: 'edu__note', text: e.note }));
+    eduList.appendChild(item);
+  });
+
+  /* ── Contact ── */
+  const contactLinks = document.getElementById('contact-links');
+  [
+    { label: 'Email', val: d.contact.email, href: `mailto:${d.contact.email}` },
+    { label: 'LinkedIn', val: d.contact.linkedin, href: `https://${d.contact.linkedin}` },
+    { label: 'GitHub', val: d.contact.github, href: `https://${d.contact.github}` },
+  ].forEach(({ label, val, href }) => {
+    contactLinks.appendChild(el('a', { class: 'contact__item', href, target: '_blank', rel: 'noopener' },
+      el('span', { class: 'contact__label', text: label }),
+      el('span', { class: 'contact__val', text: val })
+    ));
+  });
+
+  /* ── Footer ── */
+  document.getElementById('footer-name').textContent = d.name;
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+})();
+</script>
+
+<script>
+// Auto-expand all project cards and then print
+window.addEventListener('load', function() {
+  // Open all accordion panels
+  document.querySelectorAll('.project-card__detail').forEach(function(detail) {
+    detail.classList.add('project-card__detail--open');
+  });
+  document.querySelectorAll('.project-card__chevron').forEach(function(ch) {
+    ch.style.display = 'none';
+  });
+  document.querySelectorAll('.project-card__summary').forEach(function(btn) {
+    btn.setAttribute('aria-expanded', 'true');
+  });
+
+  // Wait for fonts + layout to settle
+  document.fonts.ready.then(function() {
+    setTimeout(function() { window.print(); }, 600);
+  });
+});
+</script>
+</body>
+</html>
